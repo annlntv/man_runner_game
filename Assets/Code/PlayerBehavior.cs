@@ -7,6 +7,7 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] PreFinishBehaviour preFinishBehaviour;
     [SerializeField] Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
