@@ -322,6 +322,7 @@ MonoBehaviour:
   player: {fileID: 356639509700079962}
   preFinishBehaviour: {fileID: 2124923492606854866}
   animator: {fileID: 7612545060409162367}
+  _mainCamera: {fileID: 2745572977599778054}
 --- !u!114 &2124923492606854866
 MonoBehaviour:
   m_ObjectHideFlags: 0
