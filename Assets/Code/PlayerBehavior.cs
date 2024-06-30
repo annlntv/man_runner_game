@@ -7,7 +7,8 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] PreFinishBehaviour preFinishBehaviour;
     [SerializeField] Animator animator;
-    
+    [SerializeField] Camera _mainCamera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class PlayerBehavior : MonoBehaviour
     }
 
     public void StartPrefinishBehaviour() {
+        _mainCamera.enabled = false;
         player.enabled = false;
         preFinishBehaviour.enabled = true;
     }
@@ -28,6 +30,7 @@ public class PlayerBehavior : MonoBehaviour
     public void StartFinishBehaviour()
     {
         preFinishBehaviour.enabled = false ;
+        
         animator.SetTrigger("dance");
     }
 }
