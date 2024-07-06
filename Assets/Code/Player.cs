@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    public float speed;
     [SerializeField] Animator animator;
     private float oldMousePositionX;
     private float eulerY;
-    
+
+    //Rigidbody rb;
 
     // Update is called once per frame
     void Update()
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
             Vector3 newPos = transform.position + transform.forward * Time.deltaTime * speed;
             newPos.x = Mathf.Clamp(newPos.x, -2.5f, 2.5f);
             transform.position = newPos;
-
+            //rb.MovePosition(newPos);
             float deltaX = Input.mousePosition.x - oldMousePositionX;
             oldMousePositionX = Input.mousePosition.x;
 
