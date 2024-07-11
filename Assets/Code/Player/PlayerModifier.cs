@@ -65,7 +65,7 @@ public class PlayerModifier : MonoBehaviour
         else if (width > 0)
         {
             width -= 50;
-            UpdateWidth() ;
+            UpdateWidth();
         }
         else
         {
