@@ -21,10 +21,17 @@ public class PlayerBehavior : MonoBehaviour
         player.enabled = true;
     }
 
-    public void StartPrefinishBehaviour() {
-        _mainCamera.enabled = false;
+    public void MoveToOnePoint()
+    {
         player.enabled = false;
         preFinishBehaviour.enabled = true;
+        _mainCamera.enabled = false;
+    }
+
+    public void StartPrefinishBehaviour() {
+        preFinishBehaviour.enabled = false;
+        player.enabled = false;
+        
     }
 
     public void StartFinishBehaviour()

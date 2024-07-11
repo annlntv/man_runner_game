@@ -23,7 +23,7 @@ public class CharacterAutoMove : MonoBehaviour
         {
             isMoving = true;
             currentWaypointIndex = 0;
-            transform.position = waypoints[currentWaypointIndex].position;
+            //transform.position = waypoints[currentWaypointIndex].position;
         }
     }
 
@@ -33,8 +33,14 @@ public class CharacterAutoMove : MonoBehaviour
         {
             Transform targetWaypoint = waypoints[currentWaypointIndex];
             Vector3 direction = (targetWaypoint.position - transform.position).normalized;
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            // ѕроверка длины вектора перед попыткой поворота
+            if (direction != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
+
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, moveSpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
@@ -45,7 +51,6 @@ public class CharacterAutoMove : MonoBehaviour
         else
         {
             isMoving = false; // отключаем движение по достижении конца пути
-
         }
     }
 }
